@@ -6,16 +6,16 @@
 #                    - Written with hand by maDeveloper.
 
 all:
-	g++ console.c -o bin/tcon
+	gcc devkit.cpp -o bin/tpm
 
 build:
-	g++ console.c -o bin/tcon
+	gcc devkit.cpp -o bin/tpm
 
 install:
 	cp bin/* /usr/bin
 
 uninstall:
-	rm -rf /usr/bin/tcon
+	rm -rf /usr/bin/tpm
 
 clean:
 	rm -rf bin/
