@@ -43,6 +43,51 @@ elif option == "download":
         print("::Downloading %s..." % package)
         downloader.download()
 
+elif option == "remove":
+    packages = sys.argv
+
+    for package in packages:
+        print("::Loading classes...")
+        remover = Remover(package)
+
+        print("::Removing %s..." % package)
+        remover.remove()
+
+elif option == "load":
+    packages = sys.argv
+
+    for package in packages:
+        print("::Loading classes...")
+        installer = Installer(package)
+
+        print("::Installing %s..." % package)
+        installer.install()
+
+        ask_for_garbage = input("\n? Want to clean garbage ? [Y/n]: ")
+        print()
+
+        if ask_for_garbage in "Yy":
+            print("::Loading cleaner class...")
+            cleaner = Cleaner(package)
+
+            print(" Cleaning %s.zip..." % package)
+            cleaner.clean()
+
+        elif ask_for_garbage in "Nn":
+            print("\n ! Not cleaning garbage !\n")
+
+            exit(0)
+
+        elif ask_for_garbage == "":
+            print("\n ! Not cleaning garbage !\n")
+
+            exit(0)
+
+        else:
+            print("\n ! Not cleaning garbage !\n")
+
+            exit(0)
+
 elif option == "package":
     pass
 
@@ -52,9 +97,5 @@ elif option == "build":
 elif option == "run":
     pass
 
-elif option == "remove":
-    packages = sys.argv
-
 else:
     pass
-
