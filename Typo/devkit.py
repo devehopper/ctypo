@@ -16,8 +16,10 @@ from pkgtool import Installer
 from pkgtool import Remover
 from pkgtool import Cleaner
 
+import os
 import sys
 import colored
+import shutil
 
 file = sys.argv.pop(0)
 
@@ -114,6 +116,22 @@ elif option == "init":
     config.package_repository = "https://github.com/typolang/tpm-repo"
 
     config.update()
+
+    os.mkdir(".typo")
+    os.mkdir(".typo/lib")
+    os.mkdir(".typo/lang")
+    os.mkdir(".typo/lang/devkit")
+    os.mkdir(".typo/vm")
+
+    project_json_loader = project_json.ProjectJSONGenerator(config.metadata, ".typo/project.json")
+    
+    project_json_loader.generate()
+
+elif option == "install-runtime":
+    print("::Installing runtime elemens...")
+    print(" Copying runtime directory from /usr/lib/ctypo/runtime")
+
+    shutil.copytree("/usr/lib/ctypo/runtime.exe", ".typo/lang/runtime.exe")
 
 else:
     throw.throw("OptionNotFound", "There is no option called \"%s\"." % option, "Enter a valid option.", -1, 1)

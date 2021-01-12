@@ -13,10 +13,6 @@ import zipfile
 import shutil
 import os
 
-class Initializer:
-    def init():
-        pass
-
 class PackageTool:
     package: str
 
