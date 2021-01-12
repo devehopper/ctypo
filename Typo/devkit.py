@@ -5,6 +5,7 @@
 # words, front end for Typo
 # development kit.
 
+from colored.colored import stylize
 import throw
 import linker
 import config
@@ -16,6 +17,7 @@ from pkgtool import Remover
 from pkgtool import Cleaner
 
 import sys
+import colored
 
 file = sys.argv.pop(0)
 
@@ -24,9 +26,6 @@ try:
 
 except IndexError:
     throw.throw("IndexError", "Can't find an option that passed as command line argument.", "Pass a argument as command line parameter.", -1, 1)
-
-config.package_channel = "stable"
-config.package_repository = "https://github.com/typolang/tpm-repo"
 
 if option == "install":
     packages = sys.argv
@@ -105,6 +104,16 @@ elif option == "build":
 
 elif option == "run":
     pass
+
+elif option == "init":
+    config.project_name = input(" %s Project Name %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green")))).lower().replace(" ", "-")
+    config.project_authors = input(" %s Project Authors ( Separated with \", \". ) %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green")))).split(", ")
+    config.project_owner = input(" %s Project Owner %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green"))))
+
+    config.package_channel = "stable"
+    config.package_repository = "https://github.com/typolang/tpm-repo"
+
+    config.update()
 
 else:
     throw.throw("OptionNotFound", "There is no option called \"%s\"." % option, "Enter a valid option.", -1, 1)
