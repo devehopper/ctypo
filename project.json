@@ -1,0 +1,18 @@
+{
+    "project": {
+        "name": "C Typo",
+        "owner": "maDeveloper",
+        "authors": [
+            "maDeveloper"
+        ],
+
+        "license": "gpl3"
+    },
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/typolang/ctypo",
+        "name": "ctypo",
+        "owner": "typolang"
+    }
+}
