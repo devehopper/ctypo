@@ -31,7 +31,12 @@
 *.out
 *.app
 
+# Binary directories
+Bin/
+__pycache__/
+
 # Editor and IDE directories
 .vs/
 .vscode/
 .idea/
+

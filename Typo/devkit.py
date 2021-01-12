@@ -17,7 +17,16 @@ from pkgtool import Cleaner
 
 import sys
 
-option = sys.argv.pop(0)
+file = sys.argv.pop(0)
+
+try:
+    option = sys.argv.pop(0)
+
+except IndexError:
+    throw.throw("IndexError", "Can't find an option that passed as command line argument.", "Pass a argument as command line parameter.", -1, 1)
+
+config.package_channel = "stable"
+config.package_repository = "https://github.com/typolang/tpm-repo"
 
 if option == "install":
     packages = sys.argv
@@ -98,4 +107,4 @@ elif option == "run":
     pass
 
 else:
-    pass
+    throw.throw("OptionNotFound", "There is no option called \"%s\"." % option, "Enter a valid option.", -1, 1)
