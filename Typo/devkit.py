@@ -15,6 +15,7 @@ from pkgtool import Downloader
 from pkgtool import Installer
 from pkgtool import Remover
 from pkgtool import Cleaner
+from config_class import configuration
 
 import os
 import sys
@@ -108,23 +109,25 @@ elif option == "run":
     pass
 
 elif option == "init":
-    config.project_name = input(" %s Project Name %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green")))).lower().replace(" ", "-")
-    config.project_authors = input(" %s Project Authors ( Separated with \", \". ) %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green")))).split(", ")
-    config.project_owner = input(" %s Project Owner %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green"))))
+    configuration.project_name = input(" %s Project Name %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green")))).lower().replace(" ", "-")
+    configuration.project_authors = input(" %s Project Authors ( Separated with \", \". ) %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green")))).split(", ")
+    configuration.project_owner = input(" %s Project Owner %s: " % (colored.stylize("?", colored.fg("green")), colored.stylize("?", colored.fg("green"))))
 
-    config.package_channel = "stable"
-    config.package_repository = "https://github.com/typolang/tpm-repo"
+    configuration.package_channel = "stable"
+    configuration.package_repository = "https://github.com/typolang/pkgrepo"
 
-    config.update()
+    configuration.update()
 
     os.mkdir(".typo")
-    os.mkdir(".typo/lib")
-    os.mkdir(".typo/lang")
-    os.mkdir(".typo/lang/devkit")
-    os.mkdir(".typo/vm")
+    os.mkdir(".typo/lib/")
+    os.mkdir(".typo/lang/")
+    os.mkdir(".typo/lang/devkit/")
+    os.mkdir(".typo/vm/")
+    os.mkdir("src/")
+    os.mkdir("bin/")
 
-    project_json_loader = project_json.ProjectJSONGenerator(config.metadata, ".typo/project.json")
-    
+    project_json_loader = project_json.ProjectJSONGenerator(configuration.metadata, ".typo/project.json")
+
     project_json_loader.generate()
 
 elif option == "install-runtime":
