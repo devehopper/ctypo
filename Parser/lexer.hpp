@@ -70,15 +70,16 @@ class Lexer
 
         std::string scanNumber(int firstNumber, int firstNumberLocation)
         {
+            std::string returnValue;
+
             while (stringContains(Token::number, this->sourceCode[this->lexerPosition]))
             {
                 this->advance();
 
-                if (stringDoesNotContains(Token::number, this->currentCharacter))
-                {
-                    
-                }
+                
             }
+
+            return returnValue;
         }
 
         token_pair startLexing()
