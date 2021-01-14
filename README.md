@@ -1,4 +1,4 @@
-# Typo v0:01
+# Typo v0:00
 Copyright (c) 2020 - 2021 maDeveloper. All rights reserved.
 
 See the end of this file for futher copyright and license information.
