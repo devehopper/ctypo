@@ -30,8 +30,7 @@ Bug reports are welcome! You can use the [issue tracker](https://github.com/typo
 ### License
 Typo uses [MSF Public Software License]() and it terms applies to everybody which are referenced in [copying file](https://github.com/typolang/typo/blob/main/COPYING).
 
-Copyright (c) 2020-2021 [maDeveloper](https://github.com/handlederror). All rights reserved.
-
+Copyright (c) 2020-2021 [maDeveloper](https://github.com/handlederror). All rights reserved. <br>
 Copyright (c) 2021-2021 [Muhammet DÜLGER](https://github.com/dulgermuhammet). All rights reserved.
 
 See the [copying file](https://github.com/typolang/ctypo/blob/main/COPYING) for more information.
