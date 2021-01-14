@@ -76,7 +76,8 @@ class Lexer
             {
                 this->advance();
 
-                
+                std::string character (1, this->currentCharacter);
+                returnValue.append(character);
             }
 
             return returnValue;
@@ -116,7 +117,7 @@ class Lexer
                             {
                                 if (stringContains(Token::number, this->currentCharacter))
                                 {
-                                    returnValue = std::make_tuple("number", scanNumber(this->currentCharacter, this->lexerPosition));
+                                    returnValue = std::make_tuple("integer", scanNumber(this->currentCharacter, this->lexerPosition));
                                 }
                             }
                         }

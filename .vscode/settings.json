@@ -61,5 +61,6 @@
         "valarray": "cpp",
         "set": "cpp",
         "unordered_set": "cpp"
-    }
+    },
+    "cmake.configureOnOpen": false
 }
