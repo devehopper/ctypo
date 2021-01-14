@@ -1,7 +1,7 @@
 # Typo v0:00
 Copyright (c) 2020 - 2021 maDeveloper. All rights reserved.
 
-See the end of this file for futher copyright and license information.
+See the end of this file for license information.
 
 ## General Information
 - Website: [https://typolang.github.io/ctypo/Docs](https://typolang.github.io/ctypo/Docs)
